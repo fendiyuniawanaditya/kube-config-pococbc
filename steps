@@ -1,0 +1,17 @@
++++++++++++++++++++
+helloworld
++++++++++++++++++++
+
+This is to show that we can run java application (springboot+junit) in kuberntes environment. 
+using jenkins we can automate from git pull until deployment to production using following jenkins stage : 
+    1. pull from git
+    2. build package using mvn clean package
+    3. test package using mvn test
+    5. build the docker image and push to image respository using mvn install
+    6. deploy to kubernetes cluster using kubectl apply command.
+
+Steps to manually Run helloworld apps.
+1. kubectl apply -f service/helloworld/dev.yaml
+2. kubectl apply -f deploy/helloworld/dev.yaml
+3. kubectl apply -f gateway/helloworld/dev.yaml
+4. kubectl apply -f virtualservice/helloworld/dev.yaml
